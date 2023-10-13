@@ -2,7 +2,7 @@
 package ru.vtb.hackathon.model;
 
 import lombok.Data;
-import ru.vtb.hackathon.model.dto.AtmServices.*;
+import ru.vtb.hackathon.model.dto.atm.services.*;
 
 @Data
 public class Services {

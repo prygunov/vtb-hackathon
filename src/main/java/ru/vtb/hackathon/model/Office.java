@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class Office {
 
+    Long id;
     private String salePointName;
     private String addressString;
     private String status;

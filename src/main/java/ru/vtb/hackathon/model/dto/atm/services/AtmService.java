@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto.AtmServices;
+package ru.vtb.hackathon.model.dto.atm.services;
 
 import lombok.Data;
 

@@ -1,7 +1,8 @@
-package ru.vtb.hackathon.model.dto.AtmServices;
+package ru.vtb.hackathon.model.dto.atm.services;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ru.vtb.hackathon.model.dto.atm.services.AtmService;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
