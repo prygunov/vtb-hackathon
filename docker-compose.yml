@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=hackaton
       - POSTGRES_PASSWORD=hackaton123
     ports:
-      - "5432:5432"
+      - "7878:5432"
 
   backend:
     build:
@@ -23,9 +23,9 @@ services:
     depends_on:
       - db
     environment:
-      - SERVER_PROTOCOL=http
-      - SERVER_HOST=localhost:8080
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/hackaton
+      - SERVER_PROTOCOL=https
+      - SERVER_HOST=ru.vtb.hackaton
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:7878/hackaton
       - SPRING_DATASOURCE_USERNAME=hackaton
       - SPRING_DATASOURCE_PASSWORD=hackaton123
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
