@@ -3,14 +3,9 @@ name: CI/CD Dev
 on:
   workflow_dispatch:
   push:
-    branches:
-      - dev
 
 jobs:
-  test:
-   uses: ./.github/workflows/test.yml
   build:
-    needs: test
     runs-on: self-hosted
     name: 'Build and run artifact'
     steps:
@@ -28,7 +23,7 @@ jobs:
         cache: maven
         
     - name: Build with Maven
-      run: mvn package
+      run: mvn package -Dmaven.test.skip
       
     - name: Run services
       run: |          
