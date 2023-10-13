@@ -24,11 +24,10 @@ services:
       - db
     environment:
       - SERVER_PROTOCOL=https
-      - SERVER_HOST=ru.vtb.hackaton
+      - SERVER_HOST=vtb.artux.net
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:7878/hackaton
       - SPRING_DATASOURCE_USERNAME=hackaton
       - SPRING_DATASOURCE_PASSWORD=hackaton123
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SERVICES_MAPS_API_KEY=${MAPS_API_KEY}
     ports:
       - "8091:8080"
