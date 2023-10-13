@@ -1,15 +1,10 @@
 
 package ru.vtb.hackathon.model;
 
-import ru.vtb.hackathon.model.dto.Blind;
-import ru.vtb.hackathon.model.dto.NfcForBankCards;
-import ru.vtb.hackathon.model.dto.QrRead;
-import ru.vtb.hackathon.model.dto.SupportsChargeRub;
-import ru.vtb.hackathon.model.dto.SupportsEur;
-import ru.vtb.hackathon.model.dto.SupportsRub;
-import ru.vtb.hackathon.model.dto.SupportsUsd;
-import ru.vtb.hackathon.model.dto.Wheelchair;
+import lombok.Data;
+import ru.vtb.hackathon.model.dto.AtmServices.*;
 
+@Data
 public class Services {
 
     private Wheelchair wheelchair;
@@ -20,69 +15,5 @@ public class Services {
     private SupportsChargeRub supportsChargeRub;
     private SupportsEur supportsEur;
     private SupportsRub supportsRub;
-
-    public Wheelchair getWheelchair() {
-        return wheelchair;
-    }
-
-    public void setWheelchair(Wheelchair wheelchair) {
-        this.wheelchair = wheelchair;
-    }
-
-    public Blind getBlind() {
-        return blind;
-    }
-
-    public void setBlind(Blind blind) {
-        this.blind = blind;
-    }
-
-    public NfcForBankCards getNfcForBankCards() {
-        return nfcForBankCards;
-    }
-
-    public void setNfcForBankCards(NfcForBankCards nfcForBankCards) {
-        this.nfcForBankCards = nfcForBankCards;
-    }
-
-    public QrRead getQrRead() {
-        return qrRead;
-    }
-
-    public void setQrRead(QrRead qrRead) {
-        this.qrRead = qrRead;
-    }
-
-    public SupportsUsd getSupportsUsd() {
-        return supportsUsd;
-    }
-
-    public void setSupportsUsd(SupportsUsd supportsUsd) {
-        this.supportsUsd = supportsUsd;
-    }
-
-    public SupportsChargeRub getSupportsChargeRub() {
-        return supportsChargeRub;
-    }
-
-    public void setSupportsChargeRub(SupportsChargeRub supportsChargeRub) {
-        this.supportsChargeRub = supportsChargeRub;
-    }
-
-    public SupportsEur getSupportsEur() {
-        return supportsEur;
-    }
-
-    public void setSupportsEur(SupportsEur supportsEur) {
-        this.supportsEur = supportsEur;
-    }
-
-    public SupportsRub getSupportsRub() {
-        return supportsRub;
-    }
-
-    public void setSupportsRub(SupportsRub supportsRub) {
-        this.supportsRub = supportsRub;
-    }
 
 }

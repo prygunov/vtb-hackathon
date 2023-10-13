@@ -1,6 +1,10 @@
 package ru.vtb.hackathon.model;
 
+import lombok.Data;
+
+@Data
 public class Office {
+
     private String salePointName;
     private String addressString;
     private String status;
