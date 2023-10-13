@@ -2,6 +2,13 @@
 package ru.vtb.hackathon.model;
 
 import ru.vtb.hackathon.model.dto.Blind;
+import ru.vtb.hackathon.model.dto.NfcForBankCards;
+import ru.vtb.hackathon.model.dto.QrRead;
+import ru.vtb.hackathon.model.dto.SupportsChargeRub;
+import ru.vtb.hackathon.model.dto.SupportsEur;
+import ru.vtb.hackathon.model.dto.SupportsRub;
+import ru.vtb.hackathon.model.dto.SupportsUsd;
+import ru.vtb.hackathon.model.dto.Wheelchair;
 
 public class Services {
 

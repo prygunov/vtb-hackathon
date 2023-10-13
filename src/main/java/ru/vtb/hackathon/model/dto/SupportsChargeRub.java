@@ -1,18 +1,9 @@
 
-package ru.vtb.hackathon.model;
+package ru.vtb.hackathon.model.dto;
 
-import javax.annotation.Generated;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-@Generated("jsonschema2pojo")
 public class SupportsChargeRub {
 
-    @SerializedName("serviceCapability")
-    @Expose
     private String serviceCapability;
-    @SerializedName("serviceActivity")
-    @Expose
     private String serviceActivity;
 
     public String getServiceCapability() {

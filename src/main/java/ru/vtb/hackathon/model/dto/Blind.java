@@ -1,6 +1,6 @@
 package ru.vtb.hackathon.model.dto;
 
-public class Feature {
+public class Blind {
 
     private String serviceCapability;
     private String serviceActivity;

@@ -1,9 +1,7 @@
 
-package ru.vtb.hackathon.model;
+package ru.vtb.hackathon.model.dto;
 
-import ru.vtb.hackathon.model.dto.Service;
-
-import java.util.EnumMap;
+import ru.vtb.hackathon.model.Services;
 
 public class ATM {
 
@@ -11,7 +9,7 @@ public class ATM {
     private Double latitude;
     private Double longitude;
     private Boolean allDay;
-    private EnumMap<Service, Services> services;
+    private Services services;
 
     public String getAddress() {
         return address;
@@ -45,12 +43,5 @@ public class ATM {
         this.allDay = allDay;
     }
 
-    public Services getServices() {
-        return services;
-    }
-
-    public void setServices(Services services) {
-        this.services = services;
-    }
 
 }

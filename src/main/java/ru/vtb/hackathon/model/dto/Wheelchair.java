@@ -1,18 +1,8 @@
+package ru.vtb.hackathon.model.dto;
 
-package ru.vtb.hackathon.model;
-
-import javax.annotation.Generated;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-@Generated("jsonschema2pojo")
 public class Wheelchair {
 
-    @SerializedName("serviceCapability")
-    @Expose
     private String serviceCapability;
-    @SerializedName("serviceActivity")
-    @Expose
     private String serviceActivity;
 
     public String getServiceCapability() {
