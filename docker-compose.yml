@@ -1,0 +1,33 @@
+version: '3.9'
+
+name: pdanetwork
+
+services:
+  db:
+    image: postgres:16
+    container_name: pdanetwork_db
+    restart: unless-stopped
+
+    environment:
+      - POSTGRES_USER=pdanet
+      - POSTGRES_PASSWORD=&1Te3O6zHnD9
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+
+    container_name: pdanetwork_back
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - SERVER_PROTOCOL=http
+      - SERVER_HOST=localhost:8080
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/pdanet
+      - SPRING_DATASOURCE_USERNAME=pdanet
+      - SPRING_DATASOURCE_PASSWORD=&1Te3O6zHnD9
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8080:8080"
