@@ -7,13 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-import ru.vtb.hackathon.entity.ATMEntity;
-import ru.vtb.hackathon.model.Office;
-import ru.vtb.hackathon.model.RootATM;
-import ru.vtb.hackathon.repository.atm.ATMRepository;
-import ru.vtb.hackathon.service.atm.ATMService;
+import ru.vtb.hackathon.entity.OfficeEntity;
+import ru.vtb.hackathon.repository.office.OfficeRepository;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -21,27 +19,27 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OfficeServiceImpl implements OfficeService {
 
-    private final ATMRepository repository;
+    private final OfficeRepository repository;
     private final ObjectMapper mapper;
 
     @PostConstruct
     public void init(){
         try {
-            List<ATMEntity> atms = readATMs();
-            log.info("Read {} atms from config.", atms.size());
-            repository.saveAll(atms);
+            List<OfficeEntity> offices = readOffices();
+            log.info("Read {} offices from config.", offices.size());
+            repository.saveAll(offices);
         } catch (IOException e) {
-            log.error("Error with reading ATMs", e);
+            log.error("Error with reading offices", e);
         }
     }
 
-    private List<ATMEntity> readATMs() throws IOException {
-        Resource resource = new ClassPathResource("static/atms.txt");
-        return mapper.readValue(resource.getInputStream(), RootATM.class).getAtms();
+    private List<OfficeEntity> readOffices() throws IOException {
+        Resource resource = new ClassPathResource("static/offices.txt");
+        return Arrays.asList(mapper.readValue(resource.getInputStream(), OfficeEntity[].class));
     }
 
     @Override
-    public List<ATMEntity> findAllATMAround(Double latitude, Double longitude, Double radius) {
+    public List<OfficeEntity> findAllOfficesAround(Double latitude, Double longitude, Double radius) {
         return repository.findAllWithInRadius(latitude, longitude, radius);
     }
 }

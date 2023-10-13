@@ -16,11 +16,21 @@ import ru.vtb.hackathon.model.OfficeTime;
 public class OfficeEntity {
 
     @Id
-    private Long id;
     private String salePointName;
     private String addressString;
     private String status;
 
     private Double latitude;
     private Double longitude;
+
+    public String address;
+    public String rko;
+    public String officeType;
+    public String salePointFormat;
+    public String suoAvailability;
+    public String hasRamp;
+    public String metroStation;
+    //public int distance;TODO!
+    public Boolean kep;
+    public Boolean myBranch;
 }
