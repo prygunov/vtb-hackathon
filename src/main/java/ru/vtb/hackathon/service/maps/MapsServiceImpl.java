@@ -3,7 +3,7 @@ package ru.vtb.hackathon.service.maps;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.vtb.hackathon.entity.ATMEntity;
-import ru.vtb.hackathon.repository.ATMRepository;
+import ru.vtb.hackathon.repository.atm.ATMRepository;
 import ru.vtb.hackathon.repository.maps.MapsRepository;
 
 import java.util.List;

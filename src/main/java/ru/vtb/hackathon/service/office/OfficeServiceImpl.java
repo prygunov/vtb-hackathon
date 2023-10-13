@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.service.atm;
+package ru.vtb.hackathon.service.office;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
@@ -8,8 +8,10 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import ru.vtb.hackathon.entity.ATMEntity;
+import ru.vtb.hackathon.model.Office;
 import ru.vtb.hackathon.model.RootATM;
 import ru.vtb.hackathon.repository.atm.ATMRepository;
+import ru.vtb.hackathon.service.atm.ATMService;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class ATMServiceImpl implements ATMService {
+public class OfficeServiceImpl implements OfficeService {
 
     private final ATMRepository repository;
     private final ObjectMapper mapper;

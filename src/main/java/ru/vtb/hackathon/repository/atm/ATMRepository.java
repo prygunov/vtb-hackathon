@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.repository;
+package ru.vtb.hackathon.repository.atm;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

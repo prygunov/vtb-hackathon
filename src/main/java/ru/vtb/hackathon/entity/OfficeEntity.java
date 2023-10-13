@@ -20,4 +20,7 @@ public class OfficeEntity {
     private String salePointName;
     private String addressString;
     private String status;
+
+    private Double latitude;
+    private Double longitude;
 }
