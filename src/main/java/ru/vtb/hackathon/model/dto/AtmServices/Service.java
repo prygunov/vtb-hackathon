@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto;
+package ru.vtb.hackathon.model.dto.AtmServices;
 
 public enum Service {
     WHEELCHAIR,
