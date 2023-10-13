@@ -1,26 +1,39 @@
 package ru.vtb.hackathon.service;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import ru.vtb.hackathon.repository.maps.MapsRepository;
 
+@Getter
+@Setter
+@Service
 public class MapsServiceGenerator {
 
-    private static final String BASE_URL = "https://api.routing.yandex.net/v2/";
+    @Value("${services.maps.api.key}")
+    private String apiKey;
 
-    private static Retrofit.Builder builder
-            = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create());
+    @Value("${services.maps.api.url}")
+    private String baseMapsApiUrl;
 
-    private static Retrofit retrofit = builder.build();
+    private MapsRepository createService(final String apiKey) {
+        Retrofit.Builder builder
+                = new Retrofit.Builder()
+                .baseUrl(baseMapsApiUrl)
+                .addConverterFactory(GsonConverterFactory.create());
 
-    private static OkHttpClient.Builder httpClient
-            = new OkHttpClient.Builder();
+        Retrofit retrofit = builder.build();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-    public static <S> S createService(Class<S> serviceClass, final String apiKey) {
         if (apiKey != null) {
             httpClient.interceptors().clear();
             httpClient.addInterceptor(chain -> {
@@ -37,6 +50,11 @@ public class MapsServiceGenerator {
             builder.client(httpClient.build());
             retrofit = builder.build();
         }
-        return retrofit.create(serviceClass);
+        return retrofit.create(MapsRepository.class);
+    }
+
+    @Bean
+    public MapsRepository getMapsRepository(){
+        return createService(apiKey);
     }
 }

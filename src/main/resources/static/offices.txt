@@ -32,7 +32,8 @@
                 "hours": "выходной"
             }
         ],
-        "rko": "есть РКО",        "openHoursIndividual": [
+        "rko": "есть РКО",
+        "openHoursIndividual": [
             {
                 "days": "пн",
                 "hours": "09:00-20:00"
