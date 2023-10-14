@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.vtb.hackathon.entity.ATMEntity;
+import ru.vtb.hackathon.entity.AtmEntity;
 import ru.vtb.hackathon.service.atm.ATMService;
 
 import java.util.List;
@@ -16,13 +16,13 @@ import java.util.List;
 @Tag(name = "Банкоматы", description = "описание")
 @RequestMapping("/api/v1/atms")
 @RequiredArgsConstructor
-public class ATMController {
+public class AtmController {
 
     private final ATMService atmService;
 
     @GetMapping
     @Operation(description = "Получить банкоматы по гео", summary = "В заданном радиусе от заданной точки")
-    public List<ATMEntity> getATMAround(@RequestParam(value = "lat") Double latitude,
+    public List<AtmEntity> getATMAround(@RequestParam(value = "lat") Double latitude,
                                         @RequestParam(value = "long") Double longitude,
                                         @RequestParam(value = "rad") Double rad) {
         return atmService.findAllATMAround(latitude, longitude, rad);

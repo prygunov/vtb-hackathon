@@ -13,7 +13,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "atm")
-public class ATMEntity {
+public class AtmEntity {
 
     @Id
     @GeneratedValue
