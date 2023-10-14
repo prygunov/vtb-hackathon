@@ -19,6 +19,8 @@ import java.util.UUID;
 public class ATMEntity {
 
     @Id
+    @GeneratedValue
+    private UUID id;
     private String address;
     private Double latitude;
     private Double longitude;

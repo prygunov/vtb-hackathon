@@ -34,3 +34,4 @@ build/
 
 ### Local ####
 /docker-compose-local.yml
+/docker-compose-db-local.yml
