@@ -29,5 +29,5 @@ jobs:
       run: |          
           docker compose -f "./docker-compose.yml" pull
           docker compose -f "./docker-compose.yml" down
-          docker compose -f "./docker-compose.yml" up -d --no-deps --build backend
+          docker compose -f "./docker-compose.yml" up -d
           docker system prune -a -f
