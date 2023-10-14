@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class ATMServiceImpl implements ATMService {
+public class AtmServiceImpl implements AtmService {
 
     private final AtmRepository repository;
     private final ObjectMapper mapper;
@@ -39,7 +39,7 @@ public class ATMServiceImpl implements ATMService {
     }
 
     @Override
-    public List<AtmEntity> findAllATMAround(Double latitude, Double longitude, Double radius) {
+    public List<AtmEntity> findAllAtmAround(Double latitude, Double longitude, Double radius) {
         return repository.findAllWithInRadius(latitude, longitude, radius);
     }
 }

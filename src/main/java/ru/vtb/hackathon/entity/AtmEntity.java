@@ -9,26 +9,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import ru.vtb.hackathon.model.Features;
 
+import java.util.Set;
 import java.util.UUID;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "atm")
-public class AtmEntity {
+@Getter
+@Setter
+@NoArgsConstructor
+public class AtmEntity implements GeoObject, Commentable {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    protected UUID id;
+
     private String address;
     private Boolean allDay;
 
     @Embedded
     private GeoPosition geoPosition;
+
+    @OneToMany
+    Set<CommentEntity> comments;
     
     
     @Embedded

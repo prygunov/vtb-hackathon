@@ -33,11 +33,11 @@ public class OfficeEntity implements GeoObject{
     public String officeType;
     public String salePointFormat;
     public String suoAvailability;
-    public Boolean hasRamp;
+    //public Boolean hasRamp;
     public String metroStation;
     //public int distance;TODO!
 
-    public Boolean rko;
+    //public Boolean rko;
     public Boolean kep;
     public Boolean myBranch;
 }
