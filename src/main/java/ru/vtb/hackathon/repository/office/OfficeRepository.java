@@ -12,9 +12,9 @@ import java.util.UUID;
 @Repository
 public interface OfficeRepository extends JpaRepository<OfficeEntity, UUID> {
 
-    @Query("SELECT o FROM OfficeEntity o WHERE (6371 * " +
-            "acos(cos(radians(:lat)) * cos(radians(o.geoPosition.latitude)) * cos(radians(o.geoPosition.longitude) - radians(:lon)) + " +
-            "sin(radians(:lat)) * sin(radians(o.geoPosition.latitude)))) <= :rad")
+    @Query(value = "SELECT * FROM (SELECT id, address, latitude, longitude, kep, metro_station, my_branch, office_type, sale_point_format, sale_point_name, status, suo_availability, " +
+            "6371 * acos(cos(radians(:lat)) * cos(radians(latitude)) * cos(radians(longitude) - radians(:lon)) + sin(radians(:lat)) * sin(radians(latitude))) AS distance " +
+            "FROM office) WHERE distance <= :rad", nativeQuery = true)
     List<OfficeEntity> findAllWithInRadius(@Param("lat") Double lat, @Param("lon") Double lon, @Param("rad") Double rad);
 
 }

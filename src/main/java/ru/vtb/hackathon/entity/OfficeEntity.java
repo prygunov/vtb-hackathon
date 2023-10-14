@@ -1,16 +1,13 @@
 package ru.vtb.hackathon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.mapstruct.Mapping;
 
 import java.util.UUID;
 
@@ -37,9 +34,14 @@ public class OfficeEntity implements GeoObject{
     public String suoAvailability;
     //public Boolean hasRamp;
     public String metroStation;
-    //public int distance;TODO!
+    private Double distance;
 
     //public Boolean rko;
     public Boolean kep;
     public Boolean myBranch;
+
+    @JsonIgnore
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
 }

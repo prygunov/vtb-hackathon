@@ -21,7 +21,7 @@ public class OfficeDto {
     public double longitude;
     public String metroStation;
 
-    public int distance;
+    public double distance;
     public int routeDuration;
 
     public Boolean kep;

@@ -18,7 +18,7 @@ public interface OfficeMapper {
 
     @Mapping(target = "latitude", source = "entity.geoPosition.latitude")
     @Mapping(target = "longitude", source = "entity.geoPosition.longitude")
-    @Mapping(target = "distance", ignore = true)
+    @Mapping(target = "distance", source = "distance")
     @Mapping(target = "routeDuration", ignore = true)
     OfficeDto dto(OfficeEntity entity);
 
