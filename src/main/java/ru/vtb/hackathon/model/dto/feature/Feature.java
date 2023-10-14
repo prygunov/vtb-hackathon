@@ -1,6 +1,6 @@
-package ru.vtb.hackathon.model.dto.atm.services;
+package ru.vtb.hackathon.model.dto.feature;
 
-public enum Service {
+public enum Feature {
     WHEELCHAIR,
     BLIND,
     NFC_FOR_BANK_CARDS,

@@ -1,10 +1,9 @@
 
 package ru.vtb.hackathon.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
-import ru.vtb.hackathon.model.dto.atm.services.*;
+import ru.vtb.hackathon.model.dto.feature.FeatureState;
 
 @Data
 @Embeddable
