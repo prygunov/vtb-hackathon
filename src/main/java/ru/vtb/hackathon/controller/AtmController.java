@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@Tag(name = "Банкоматы", description = "описание")
+@Tag(name = "Банкоматы")
 @RequestMapping("/api/v1/atms")
 @RequiredArgsConstructor
 public class AtmController {

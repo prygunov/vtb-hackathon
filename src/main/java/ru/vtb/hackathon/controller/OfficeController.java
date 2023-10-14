@@ -22,7 +22,7 @@ public class OfficeController {
     private final OfficeService officeService;
 
     @GetMapping
-    @Operation(description = "Получить офисы по гео", summary = "В заданном радиусе от заданной точки")
+    @Operation(description = "Получить все офисы по гео", summary = "В заданном радиусе от заданной точки")
     public List<OfficeDto> getOffices(@RequestParam(value = "lat") Double latitude,
                                       @RequestParam(value = "long") Double longitude,
                                       @RequestParam(value = "rad") Double rad) {
@@ -30,7 +30,7 @@ public class OfficeController {
     }
 
     @GetMapping("/near")
-    @Operation(description = "Получить офисы по гео, дистанцию и время", summary = "По удалению от заданной точки")
+    @Operation(description = "Получить офисы по гео, дистанцию и время", summary = "По удалению от заданной точки, используется матрица расстояний Яндекса")
     public List<OfficeDto> getNearestOffices(@RequestParam(value = "lat") Double latitude,
                                                 @RequestParam(value = "long") Double longitude,
                                                 @RequestParam(value = "rad") Double rad,
