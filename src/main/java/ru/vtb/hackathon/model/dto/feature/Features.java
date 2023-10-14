@@ -14,14 +14,4 @@ public class Features {
     private FeatureState supportsEur;
     private FeatureState supportsRub;
 
-    public Features(FeaturesEmbeddable featuresEmbeddable) {
-        wheelchair = featuresEmbeddable.getWheelchair();
-        blind = featuresEmbeddable.getBlind();
-        nfcForBankCards = featuresEmbeddable.getNfcForBankCards();
-        qrRead = featuresEmbeddable.getQrRead();
-        supportsUsd = featuresEmbeddable.getSupportsUsd();
-        supportsChargeRub = featuresEmbeddable.getSupportsChargeRub();
-        supportsEur = featuresEmbeddable.getSupportsEur();
-        supportsRub = featuresEmbeddable.getSupportsRub();
-    }
 }

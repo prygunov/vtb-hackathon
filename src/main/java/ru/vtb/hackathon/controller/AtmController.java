@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.vtb.hackathon.entity.AtmEntity;
-import ru.vtb.hackathon.model.dto.Atm;
+import ru.vtb.hackathon.model.dto.atm.Atm;
 import ru.vtb.hackathon.model.dto.feature.Feature;
 import ru.vtb.hackathon.service.atm.AtmService;
 
@@ -29,10 +29,10 @@ public class AtmController {
                                   @RequestParam(value = "long") Double longitude,
                                   @RequestParam(value = "rad") Double rad,
                                   @RequestParam(value = "features", required = false) Map<Feature, Boolean> features) {
-        List<AtmEntity> allAtmAround = atmService.findAllAtmAround(latitude, longitude, rad);
+        List<Atm> allAtmAround = atmService.findAllAtmAround(latitude, longitude, rad);
         if (features != null) {
             allAtmAround = atmService.FilterByFeatures(allAtmAround, features);
         }
-        return allAtmAround.stream().map(Atm::new).toList();
+        return allAtmAround;
     }
 }
