@@ -2,6 +2,7 @@
 package ru.vtb.hackathon.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import jakarta.persistence.*;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -29,6 +30,7 @@ public class AtmEntity implements GeoObject, Commentable {
     private String address;
     private Boolean allDay;
 
+    @JsonUnwrapped
     @Embedded
     private GeoPosition geoPosition;
 
