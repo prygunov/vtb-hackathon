@@ -5,7 +5,7 @@ import lombok.Data;
 import ru.vtb.hackathon.model.Features;
 
 @Data
-public class Atm {
+public class ATM {
 
     private String address;
     private Double latitude;
