@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.vtb.hackathon.entity.OfficeEntity;
+import ru.vtb.hackathon.model.DirectionMode;
+import ru.vtb.hackathon.model.dto.office.OfficeDto;
 import ru.vtb.hackathon.service.office.OfficeService;
 
 import java.util.List;
@@ -22,18 +24,19 @@ public class OfficeController {
 
     @GetMapping
     @Operation(description = "Получить офисы по гео", summary = "В заданном радиусе от заданной точки")
-    public List<OfficeEntity> getOffices(@RequestParam(value = "lat") Double latitude,
-                                           @RequestParam(value = "long") Double longitude,
-                                           @RequestParam(value = "rad") Double rad) {
+    public List<OfficeDto> getOffices(@RequestParam(value = "lat") Double latitude,
+                                      @RequestParam(value = "long") Double longitude,
+                                      @RequestParam(value = "rad") Double rad) {
         return officeService.findAllOfficesAround(latitude, longitude, rad);
     }
 
     @GetMapping("/near")
-    @Operation(description = "Получить офисы по гео", summary = "По удалению от заданной точки")
-    public List<OfficeEntity> getNearestOffices(@RequestParam(value = "lat") Double latitude,
+    @Operation(description = "Получить офисы по гео, дистанцию и время", summary = "По удалению от заданной точки")
+    public List<OfficeDto> getNearestOffices(@RequestParam(value = "lat") Double latitude,
                                                 @RequestParam(value = "long") Double longitude,
-                                                @RequestParam(value = "rad") Double rad) {
-        return officeService.findAllOfficesAround(latitude, longitude, rad);
+                                                @RequestParam(value = "rad") Double rad,
+                                                @RequestParam(value = "mode") DirectionMode mode) {
+        return officeService.findNearOffices(latitude, longitude, rad, mode);
     }
 
 }

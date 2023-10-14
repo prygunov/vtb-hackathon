@@ -48,6 +48,7 @@ public class GeoServiceImpl implements GeoService {
 
             Objects.requireNonNull(distanceMatrix);
             Row rootRow = distanceMatrix.rows.get(0);
+
             if (targets.size() != rootRow.routes.size())
                 throw new IOException();
 
@@ -73,7 +74,7 @@ public class GeoServiceImpl implements GeoService {
                 .append(',')
                 .append(firstPosition.getLongitude());
 
-        for (int i = 1; i < o.length; i++) {
+        for (int i = 1; i < o.length && i<99; i++) {
             geoBuilder
                     .append('|')
                     .append(o[i].getGeoPosition().getLatitude())
