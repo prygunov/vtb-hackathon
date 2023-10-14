@@ -10,6 +10,6 @@ public interface AtmService {
 
     List<AtmDto> findAllAtmAround(Double latitude, Double longitude, Double radius);
 
-    List<AtmDto> filterByFeatures(List<AtmDto> atms, Map<Feature, Boolean> features);
+    List<AtmDto> filterByFeatures(List<AtmDto> atms, List<Feature> features);
 
 }
