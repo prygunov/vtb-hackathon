@@ -1,11 +1,11 @@
 package ru.vtb.hackathon.service.atm;
 
-import ru.vtb.hackathon.entity.ATMEntity;
+import ru.vtb.hackathon.entity.AtmEntity;
 
 import java.util.List;
 
 public interface ATMService {
 
-    List<ATMEntity> findAllATMAround(Double latitude, Double longitude, Double radius);
+    List<AtmEntity> findAllATMAround(Double latitude, Double longitude, Double radius);
 
 }
