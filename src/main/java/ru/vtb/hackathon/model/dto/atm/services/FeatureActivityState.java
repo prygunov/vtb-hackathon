@@ -1,6 +1,6 @@
 package ru.vtb.hackathon.model.dto.atm.services;
 
-public enum ServiceActivityState {
+public enum FeatureActivityState {
     UNKNOWN,
     UNAVAILABLE,
     AVAILABLE

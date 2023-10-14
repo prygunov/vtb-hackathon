@@ -1,14 +1,11 @@
 
 package ru.vtb.hackathon.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import ru.vtb.hackathon.model.Services;
+import ru.vtb.hackathon.model.Features;
 
 import java.util.UUID;
 
@@ -25,6 +22,8 @@ public class ATMEntity {
     private Double latitude;
     private Double longitude;
     private Boolean allDay;
-    //private Services services;
+    @Embedded
+    @JsonProperty("services")
+    private Features features;
 
 }

@@ -22,13 +22,12 @@ public class OfficeEntity {
     @GeneratedValue
     private UUID id;
     private String salePointName;
-    private String addressString;
+    private String address;
     private String status;
 
     private Double latitude;
     private Double longitude;
 
-    public String address;
     public String rko;
     public String officeType;
     public String salePointFormat;

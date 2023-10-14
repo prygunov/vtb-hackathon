@@ -2,7 +2,7 @@
 package ru.vtb.hackathon.model.dto;
 
 import lombok.Data;
-import ru.vtb.hackathon.model.Services;
+import ru.vtb.hackathon.model.Features;
 
 @Data
 public class ATM {
@@ -11,6 +11,6 @@ public class ATM {
     private Double latitude;
     private Double longitude;
     private Boolean allDay;
-    private Services services;
+    private Features features;
 
 }
