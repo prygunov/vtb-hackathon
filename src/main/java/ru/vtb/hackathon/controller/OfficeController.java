@@ -28,7 +28,7 @@ public class OfficeController {
         return officeService.findAllOfficesAround(latitude, longitude, rad);
     }
 
-    @GetMapping
+    @GetMapping("/near")
     @Operation(description = "Получить офисы по гео", summary = "По удалению от заданной точки")
     public List<OfficeEntity> getNearestOffices(@RequestParam(value = "lat") Double latitude,
                                                 @RequestParam(value = "long") Double longitude,

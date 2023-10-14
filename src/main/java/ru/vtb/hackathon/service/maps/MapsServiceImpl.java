@@ -2,8 +2,8 @@ package ru.vtb.hackathon.service.maps;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.vtb.hackathon.entity.ATMEntity;
-import ru.vtb.hackathon.repository.atm.ATMRepository;
+import ru.vtb.hackathon.entity.AtmEntity;
+import ru.vtb.hackathon.repository.atm.AtmRepository;
 import ru.vtb.hackathon.repository.maps.MapsRepository;
 
 import java.util.List;
@@ -13,10 +13,10 @@ import java.util.List;
 public class MapsServiceImpl implements MapsService{
 
     private final MapsRepository mapsRepository;
-    private final ATMRepository repository;
+    private final AtmRepository repository;
 
     @Override
-    public List<ATMEntity> findATMAllAround(Double latitude, Double longitude) {
+    public List<AtmEntity> findATMAllAround(Double latitude, Double longitude) {
         return repository.findAllWithInRadius(latitude, longitude, 100d);
     }
 }

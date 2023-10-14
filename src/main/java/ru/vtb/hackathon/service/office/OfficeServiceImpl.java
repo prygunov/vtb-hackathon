@@ -7,12 +7,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import ru.vtb.hackathon.entity.GeoPosition;
 import ru.vtb.hackathon.entity.OfficeEntity;
+import ru.vtb.hackathon.model.DirectionMode;
 import ru.vtb.hackathon.repository.office.OfficeRepository;
+import ru.vtb.hackathon.service.geo.GeoService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -20,6 +26,7 @@ import java.util.List;
 public class OfficeServiceImpl implements OfficeService {
 
     private final OfficeRepository repository;
+    private final GeoService geoService;
     private final ObjectMapper mapper;
 
     @PostConstruct
@@ -47,4 +54,14 @@ public class OfficeServiceImpl implements OfficeService {
     public List<OfficeEntity> findNearOffices(Double latitude, Double longitude, Double radius) {
         return null;
     }
+
+    @Override
+    public List<OfficeEntity> findNearOffices(Double latitude, Double longitude, Double radius, DirectionMode mode) {
+        List<OfficeEntity> officesAround = findAllOfficesAround(latitude, longitude, radius);
+        var routes = geoService.getRoutes(new GeoPosition(latitude, longitude), officesAround, mode);
+
+        return null;
+    }
+
+
 }

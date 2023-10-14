@@ -8,12 +8,14 @@ import ru.vtb.hackathon.entity.GeoObject;
 import ru.vtb.hackathon.entity.GeoPosition;
 import ru.vtb.hackathon.model.DirectionMode;
 import ru.vtb.hackathon.model.geo.DistanceMatrix;
-import ru.vtb.hackathon.model.geo.Element;
+import ru.vtb.hackathon.model.geo.Route;
 import ru.vtb.hackathon.model.geo.Row;
 import ru.vtb.hackathon.repository.maps.MapsRepository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -26,7 +28,7 @@ public class GeoServiceImpl implements GeoService {
     private final MapsRepository mapsRepository;
 
     @Override
-    public <T extends GeoObject> Map<T, Integer> getDurations(GeoPosition origin, List<T> targets, DirectionMode mode) {
+    public <T extends GeoObject> Map<T, Route> getRoutes(GeoPosition origin, List<T> targets, DirectionMode mode) {
         Objects.requireNonNull(origin);
         Objects.requireNonNull(mode);
 
@@ -36,7 +38,7 @@ public class GeoServiceImpl implements GeoService {
         String geoOrigin = getGeoString(origin);
         String geoTarget = getGeoString(targets.toArray(new GeoObject[0]));
 
-        Map<T, Integer> response = new HashMap<>();
+        Map<T, Route> response = new HashMap<>();
         try {
             Response<DistanceMatrix> httpResponse = mapsRepository
                     .getDistanceMatrix(geoOrigin, geoTarget, mode.name())
@@ -46,18 +48,18 @@ public class GeoServiceImpl implements GeoService {
 
             Objects.requireNonNull(distanceMatrix);
             Row rootRow = distanceMatrix.rows.get(0);
-            if (targets.size() != rootRow.elements.size())
+            if (targets.size() != rootRow.routes.size())
                 throw new IOException();
 
             for (int i = 0; i < targets.size(); i++) {
-                Element element = rootRow.elements.get(i);
-                response.put(targets.get(i), element.getDuration().getValue());
+                Route route = rootRow.routes.get(i);
+                response.put(targets.get(i), route);
             }
         } catch (IOException e) {
             log.error("Error while parsing duration - result.", e);
         }
 
-        return response;
+        return sortByValue(response);
     }
 
     private String getGeoString(GeoObject... o) {
@@ -79,5 +81,17 @@ public class GeoServiceImpl implements GeoService {
                     .append(o[i].getGeoPosition().getLongitude());
         }
         return geoBuilder.toString();
+    }
+
+    private static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+        var list = new ArrayList<>(map.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+
+        Map<K, V> result = new LinkedHashMap<>();
+        for (var entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+
+        return result;
     }
 }

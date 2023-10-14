@@ -11,7 +11,7 @@ import java.util.UUID;
 @Repository
 public interface AtmRepository extends JpaRepository<AtmEntity, UUID> {
 
-    @Query("SELECT a FROM AtmEntity a where ACOS(SIN(?1 * PI() / 180) * SIN(a.latitude * PI() / 180) + COS(?1 * PI() / 180) * COS(a.latitude * PI() / 180) * COS(?2 - a.longitude) * PI() / 180) * 6371 <= ?3")
+    @Query("SELECT a FROM AtmEntity a where ACOS(SIN(?1 * PI() / 180) * SIN(a.geoPosition.latitude * PI() / 180) + COS(?1 * PI() / 180) * COS(a.geoPosition.latitude * PI() / 180) * COS(?2 - a.geoPosition.longitude) * PI() / 180) * 6371 <= ?3")
     List<AtmEntity> findAllWithInRadius(Double lat, Double lang, Double rad);
 
 }
