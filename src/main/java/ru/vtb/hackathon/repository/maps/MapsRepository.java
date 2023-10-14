@@ -3,7 +3,7 @@ package ru.vtb.hackathon.repository.maps;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import ru.vtb.hackathon.model.dto.maps.DistanceMatrix;
+import ru.vtb.hackathon.model.geo.DistanceMatrix;
 
 public interface MapsRepository {
 

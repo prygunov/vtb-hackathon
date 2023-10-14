@@ -42,4 +42,9 @@ public class OfficeServiceImpl implements OfficeService {
     public List<OfficeEntity> findAllOfficesAround(Double latitude, Double longitude, Double radius) {
         return repository.findAllWithInRadius(latitude, longitude, radius);
     }
+
+    @Override
+    public List<OfficeEntity> findNearOffices(Double latitude, Double longitude, Double radius) {
+        return null;
+    }
 }

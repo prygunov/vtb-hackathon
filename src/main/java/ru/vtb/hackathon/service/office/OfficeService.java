@@ -8,4 +8,6 @@ public interface OfficeService {
 
     List<OfficeEntity> findAllOfficesAround(Double latitude, Double longitude, Double radius);
 
+    List<OfficeEntity> findNearOffices(Double latitude, Double longitude, Double radius);
+
 }

@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto.maps;
+package ru.vtb.hackathon.model.geo;
 
 import java.util.ArrayList;
 

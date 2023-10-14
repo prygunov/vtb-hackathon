@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.vtb.hackathon.entity.ATMEntity;
 import ru.vtb.hackathon.entity.OfficeEntity;
-import ru.vtb.hackathon.service.atm.ATMService;
 import ru.vtb.hackathon.service.office.OfficeService;
 
 import java.util.List;
@@ -27,6 +25,14 @@ public class OfficeController {
     public List<OfficeEntity> getOffices(@RequestParam(value = "lat") Double latitude,
                                            @RequestParam(value = "long") Double longitude,
                                            @RequestParam(value = "rad") Double rad) {
+        return officeService.findAllOfficesAround(latitude, longitude, rad);
+    }
+
+    @GetMapping
+    @Operation(description = "Получить офисы по гео", summary = "По удалению от заданной точки")
+    public List<OfficeEntity> getNearestOffices(@RequestParam(value = "lat") Double latitude,
+                                                @RequestParam(value = "long") Double longitude,
+                                                @RequestParam(value = "rad") Double rad) {
         return officeService.findAllOfficesAround(latitude, longitude, rad);
     }
 

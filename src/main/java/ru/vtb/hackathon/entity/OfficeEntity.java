@@ -1,5 +1,7 @@
 package ru.vtb.hackathon.entity;
 
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,7 +18,7 @@ import java.util.UUID;
 @Setter
 @Table(name = "office")
 @NoArgsConstructor
-public class OfficeEntity {
+public class OfficeEntity implements GeoObject{
 
     @Id
     @GeneratedValue
@@ -25,16 +27,17 @@ public class OfficeEntity {
     private String address;
     private String status;
 
-    private Double latitude;
-    private Double longitude;
+    @Embedded
+    private GeoPosition geoPosition;
 
-    public String rko;
     public String officeType;
     public String salePointFormat;
     public String suoAvailability;
-    public String hasRamp;
+    public Boolean hasRamp;
     public String metroStation;
     //public int distance;TODO!
+
+    public Boolean rko;
     public Boolean kep;
     public Boolean myBranch;
 }
