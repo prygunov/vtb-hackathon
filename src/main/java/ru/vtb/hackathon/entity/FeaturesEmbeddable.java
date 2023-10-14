@@ -1,5 +1,5 @@
 
-package ru.vtb.hackathon.model;
+package ru.vtb.hackathon.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,7 +7,7 @@ import ru.vtb.hackathon.model.dto.feature.FeatureState;
 
 @Data
 @Embeddable
-public class Features {
+public class FeaturesEmbeddable {
 
     @Embedded
     @AttributeOverrides({

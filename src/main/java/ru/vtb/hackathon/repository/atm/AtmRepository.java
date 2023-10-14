@@ -18,5 +18,4 @@ public interface AtmRepository extends JpaRepository<AtmEntity, UUID> {
             "sin(radians(:lat)) * sin(radians(o.geoPosition.latitude)))) <= :rad")
     List<AtmEntity> findAllWithInRadius(@Param("lat") Double lat, @Param("lon") Double lon, @Param("rad") Double rad);
 
-
 }

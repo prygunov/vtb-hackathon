@@ -9,9 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.*;
-import ru.vtb.hackathon.model.Features;
 
 import java.util.Set;
 import java.util.UUID;
@@ -37,9 +35,8 @@ public class AtmEntity implements GeoObject, Commentable {
     @OneToMany
     Set<CommentEntity> comments;
     
-    
     @Embedded
     @JsonProperty("services")
-    private Features features;
+    private FeaturesEmbeddable featuresEmbeddable;
 
 }
