@@ -14,9 +14,9 @@ import java.util.UUID;
 public interface AtmRepository extends JpaRepository<AtmEntity, UUID> {
 
     @Query("SELECT o FROM AtmEntity o WHERE (6371 * " +
-            "acos(cos(radians(:lat)) * cos(radians(o.geoPosition.latitude)) * cos(radians(o.geoPosition.longitude) - radians(:lan)) + " +
+            "acos(cos(radians(:lat)) * cos(radians(o.geoPosition.latitude)) * cos(radians(o.geoPosition.longitude) - radians(:lon)) + " +
             "sin(radians(:lat)) * sin(radians(o.geoPosition.latitude)))) <= :rad")
-    List<AtmEntity> findAllWithInRadius(@Param("lat") Double lat, @Param("lan") Double lan, @Param("rad") Double rad);
+    List<AtmEntity> findAllWithInRadius(@Param("lat") Double lat, @Param("lon") Double lon, @Param("rad") Double rad);
 
 
 }
