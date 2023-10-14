@@ -1,12 +1,11 @@
 
-package ru.vtb.hackathon.model.dto.atm;
+package ru.vtb.hackathon.dto.atm;
 
 import lombok.Data;
-import ru.vtb.hackathon.entity.AtmEntity;
-import ru.vtb.hackathon.model.dto.feature.Features;
+import ru.vtb.hackathon.dto.feature.Features;
 
 @Data
-public class Atm {
+public class AtmDto {
 
     private String address;
     private Double latitude;

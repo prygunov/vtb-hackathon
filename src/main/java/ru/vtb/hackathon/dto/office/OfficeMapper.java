@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto.office;
+package ru.vtb.hackathon.dto.office;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

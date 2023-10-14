@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import retrofit2.Response;
 import ru.vtb.hackathon.entity.GeoObject;
 import ru.vtb.hackathon.entity.GeoPosition;
-import ru.vtb.hackathon.model.DirectionMode;
-import ru.vtb.hackathon.model.geo.DistanceMatrix;
-import ru.vtb.hackathon.model.geo.Route;
-import ru.vtb.hackathon.model.geo.Row;
+import ru.vtb.hackathon.dto.DirectionMode;
+import ru.vtb.hackathon.dto.geo.DistanceMatrix;
+import ru.vtb.hackathon.dto.geo.Route;
+import ru.vtb.hackathon.dto.geo.Row;
 import ru.vtb.hackathon.repository.maps.MapsRepository;
 
 import java.io.IOException;

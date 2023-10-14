@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model;
+package ru.vtb.hackathon.dto;
 
 public enum DirectionMode {
     driving,

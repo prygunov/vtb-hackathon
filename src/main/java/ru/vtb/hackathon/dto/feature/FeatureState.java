@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto.feature;
+package ru.vtb.hackathon.dto.feature;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

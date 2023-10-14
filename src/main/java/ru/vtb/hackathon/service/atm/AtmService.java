@@ -1,17 +1,15 @@
 package ru.vtb.hackathon.service.atm;
 
-import ru.vtb.hackathon.entity.AtmEntity;
-import ru.vtb.hackathon.model.dto.atm.Atm;
-import ru.vtb.hackathon.model.dto.feature.Feature;
-import ru.vtb.hackathon.model.dto.feature.FeatureState;
+import ru.vtb.hackathon.dto.atm.AtmDto;
+import ru.vtb.hackathon.dto.feature.Feature;
 
 import java.util.List;
 import java.util.Map;
 
 public interface AtmService {
 
-    List<Atm> findAllAtmAround(Double latitude, Double longitude, Double radius);
+    List<AtmDto> findAllAtmAround(Double latitude, Double longitude, Double radius);
 
-    List<Atm> FilterByFeatures(List<Atm> atms, Map<Feature, Boolean> features);
+    List<AtmDto> filterByFeatures(List<AtmDto> atms, Map<Feature, Boolean> features);
 
 }

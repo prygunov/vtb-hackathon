@@ -1,8 +1,7 @@
 package ru.vtb.hackathon.service.office;
 
-import ru.vtb.hackathon.entity.OfficeEntity;
-import ru.vtb.hackathon.model.DirectionMode;
-import ru.vtb.hackathon.model.dto.office.OfficeDto;
+import ru.vtb.hackathon.dto.DirectionMode;
+import ru.vtb.hackathon.dto.office.OfficeDto;
 
 import java.util.List;
 

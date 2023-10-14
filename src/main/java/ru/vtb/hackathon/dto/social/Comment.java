@@ -1,9 +1,11 @@
-package ru.vtb.hackathon.model.dto.social;
+package ru.vtb.hackathon.dto.social;
 
 import lombok.Data;
 
 @Data
 public class Comment {
+
     String mac;
     String text;
+
 }

@@ -8,11 +8,11 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import ru.vtb.hackathon.entity.AtmEntity;
-import ru.vtb.hackathon.model.RootAtm;
-import ru.vtb.hackathon.model.dto.atm.Atm;
-import ru.vtb.hackathon.model.dto.atm.AtmMapper;
-import ru.vtb.hackathon.model.dto.feature.Feature;
-import ru.vtb.hackathon.model.dto.feature.FeatureActivityState;
+import ru.vtb.hackathon.dto.RootAtm;
+import ru.vtb.hackathon.dto.atm.AtmDto;
+import ru.vtb.hackathon.dto.atm.AtmMapper;
+import ru.vtb.hackathon.dto.feature.Feature;
+import ru.vtb.hackathon.dto.feature.FeatureActivityState;
 import ru.vtb.hackathon.repository.atm.AtmRepository;
 
 import java.io.IOException;
@@ -46,35 +46,21 @@ public class AtmServiceImpl implements AtmService {
     }
 
     @Override
-    public List<Atm> findAllAtmAround(Double latitude, Double longitude, Double radius) {
+    public List<AtmDto> findAllAtmAround(Double latitude, Double longitude, Double radius) {
         return atmMapper.dto(repository.findAllWithInRadius(latitude, longitude, radius));
     }
 
     @Override
-    public List<Atm> FilterByFeatures(List<Atm> atms, Map<Feature, Boolean> features) {
-        if (features.get(Feature.WHEELCHAIR)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getWheelchair().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.BLIND)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getBlind().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.NFC_FOR_BANK_CARDS)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getNfcForBankCards().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.QR_READ)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getQrRead().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.SUPPORTS_USD)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getSupportsUsd().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.SUPPORTS_CHARGE_RUB)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getSupportsChargeRub().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.SUPPORTS_EUR)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getSupportsEur().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
-        }
-        if (features.get(Feature.SUPPORTS_RUB)) {
-            atms = atms.stream().filter(atm -> atm.getFeatures().getSupportsRub().getFeatureActivity() == FeatureActivityState.AVAILABLE).collect(Collectors.toList());
+    public List<AtmDto> filterByFeatures(List<AtmDto> atms, Map<Feature, Boolean> features) {
+        for (var entry : features.entrySet()){
+            var feature = entry.getKey();
+            var isActivated = entry.getValue();
+            if (isActivated){
+                atms = atms.stream().filter(atm -> atm.getFeatures()
+                        .getFeatureState(feature)
+                        .getFeatureActivity() == FeatureActivityState.AVAILABLE)
+                        .collect(Collectors.toList());
+            }
         }
         return atms;
     }

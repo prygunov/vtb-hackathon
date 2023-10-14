@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.geo;
+package ru.vtb.hackathon.dto.geo;
 
 import lombok.Data;
 

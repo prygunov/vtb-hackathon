@@ -3,7 +3,7 @@ package ru.vtb.hackathon.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import ru.vtb.hackathon.model.dto.feature.FeatureState;
+import ru.vtb.hackathon.dto.feature.FeatureState;
 
 @Data
 @Embeddable

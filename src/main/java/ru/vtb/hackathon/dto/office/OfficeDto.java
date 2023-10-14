@@ -1,7 +1,10 @@
-package ru.vtb.hackathon.model.dto.office;
+package ru.vtb.hackathon.dto.office;
+
+import lombok.Data;
 
 import java.util.ArrayList;
 
+@Data
 public class OfficeDto {
 
     public String salePointName;

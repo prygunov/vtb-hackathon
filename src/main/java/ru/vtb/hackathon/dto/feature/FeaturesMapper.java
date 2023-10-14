@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto.feature;
+package ru.vtb.hackathon.dto.feature;
 
 import org.mapstruct.Mapper;
 import ru.vtb.hackathon.entity.FeaturesEmbeddable;

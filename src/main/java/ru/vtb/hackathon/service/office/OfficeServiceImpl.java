@@ -9,9 +9,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import ru.vtb.hackathon.entity.GeoPosition;
 import ru.vtb.hackathon.entity.OfficeEntity;
-import ru.vtb.hackathon.model.DirectionMode;
-import ru.vtb.hackathon.model.dto.office.OfficeDto;
-import ru.vtb.hackathon.model.dto.office.OfficeMapper;
+import ru.vtb.hackathon.dto.DirectionMode;
+import ru.vtb.hackathon.dto.office.OfficeDto;
+import ru.vtb.hackathon.dto.office.OfficeMapper;
 import ru.vtb.hackathon.repository.office.OfficeRepository;
 import ru.vtb.hackathon.service.geo.GeoService;
 

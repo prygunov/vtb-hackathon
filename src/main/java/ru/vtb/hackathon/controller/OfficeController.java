@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.vtb.hackathon.entity.OfficeEntity;
-import ru.vtb.hackathon.model.DirectionMode;
-import ru.vtb.hackathon.model.dto.office.OfficeDto;
+import ru.vtb.hackathon.dto.DirectionMode;
+import ru.vtb.hackathon.dto.office.OfficeDto;
 import ru.vtb.hackathon.service.office.OfficeService;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.vtb.hackathon.model.dto.office;
+package ru.vtb.hackathon.dto.office;
 
 public class OpenHour{
     public String days;
