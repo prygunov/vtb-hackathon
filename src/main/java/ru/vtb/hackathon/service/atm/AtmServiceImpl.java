@@ -7,17 +7,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-import ru.vtb.hackathon.entity.AtmEntity;
 import ru.vtb.hackathon.dto.RootAtm;
 import ru.vtb.hackathon.dto.atm.AtmDto;
 import ru.vtb.hackathon.dto.atm.AtmMapper;
 import ru.vtb.hackathon.dto.feature.Feature;
 import ru.vtb.hackathon.dto.feature.FeatureActivityState;
+import ru.vtb.hackathon.entity.AtmEntity;
 import ru.vtb.hackathon.repository.atm.AtmRepository;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,16 +50,13 @@ public class AtmServiceImpl implements AtmService {
     }
 
     @Override
-    public List<AtmDto> filterByFeatures(List<AtmDto> atms, Map<Feature, Boolean> features) {
-        for (var entry : features.entrySet()){
-            var feature = entry.getKey();
-            var isActivated = entry.getValue();
-            if (isActivated){
-                atms = atms.stream().filter(atm -> atm.getFeatures()
+    public List<AtmDto> filterByFeatures(List<AtmDto> atms, List<Feature> features) {
+        for (var entry : features) {
+            var feature = entry;
+            atms = atms.stream().filter(atm -> atm.getFeatures()
                         .getFeatureState(feature)
                         .getFeatureActivity() == FeatureActivityState.AVAILABLE)
                         .collect(Collectors.toList());
-            }
         }
         return atms;
     }

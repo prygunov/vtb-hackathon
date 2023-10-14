@@ -15,10 +15,10 @@ jobs:
       with:
         maven-version: 3.8.2
 
-    - name: Set up JDK 17
+    - name: Set up JDK 19
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
+        java-version: '19'
         distribution: 'zulu'
         cache: maven
         
@@ -29,5 +29,5 @@ jobs:
       run: |          
           docker compose -f "./docker-compose.yml" pull
           docker compose -f "./docker-compose.yml" down
-          docker compose -f "./docker-compose.yml" up -d 
+          docker compose -f "./docker-compose.yml" up -d
           docker system prune -a -f
