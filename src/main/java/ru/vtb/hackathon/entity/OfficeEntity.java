@@ -1,5 +1,7 @@
 package ru.vtb.hackathon.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -27,6 +29,7 @@ public class OfficeEntity implements GeoObject{
     private String address;
     private String status;
 
+    @JsonUnwrapped
     @Embedded
     private GeoPosition geoPosition;
 
